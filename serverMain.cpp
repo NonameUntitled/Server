@@ -63,10 +63,10 @@ int main(int argc, char **argv) {
         });
     } catch (std::exception &exception) {
         std::cerr << exception.what();
-        exit(EXIT_FAILURE);
+        return -1;
     } catch (...) {
         std::cerr << "Unknown error occurred!" << '\n';
-        exit(EXIT_FAILURE);
+        return -1;
     }
 
     epoll.run();

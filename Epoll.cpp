@@ -57,6 +57,7 @@ void Epoll::run() {
                         throwException("Read error");
                     }
                     if (recvRes == 0 && errno != EAGAIN) {
+                        mFromServerToProcess.erase(Events[i].data.fd);
                         shutdown(Events[i].data.fd, SHUT_RDWR);
                         close(Events[i].data.fd);
                     } else {

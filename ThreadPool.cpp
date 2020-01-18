@@ -14,7 +14,7 @@ ThreadPool::~ThreadPool() {
     joinWorkers();
 }
 
-void ThreadPool::enqueue(int clientSocket, std::function<std::string(const std::string &)> action, std::string address) {
+void ThreadPool::enqueue(int clientSocket, std::function<std::string(const std::string &)> action, const std::string &address) {
     {
         std::lock_guard<std::mutex> lock(mTasksMutex);
 

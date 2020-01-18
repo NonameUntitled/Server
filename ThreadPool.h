@@ -15,7 +15,7 @@ public:
 
     ~ThreadPool();
 
-    void enqueue(int clientSocket, std::function<std::string(const std::string &)> action, std::string address);
+    void enqueue(int clientSocket, std::function<std::string(const std::string &)> action, const std::string &address);
 
 private:
     uint32_t mWorkersCount;
